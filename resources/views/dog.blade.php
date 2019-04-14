@@ -3,7 +3,8 @@
 @section('content')
 
 <div class="title m-b-md">
-    Puppy-vel
+    Single Dog
 </div>
 
+<p>{{ $id }}</p>
 @endsection

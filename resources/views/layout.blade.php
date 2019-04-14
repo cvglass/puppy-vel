@@ -78,8 +78,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Contacts
+                @yield('content')
+
+                <div class="links">
+                    <a href="/">Home</a>
+                    <a href="/dogs">Show me the puppies!</a>
+                    <a href="/submit">Submit your puppy</a>
                 </div>
             </div>
         </div>

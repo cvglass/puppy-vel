@@ -12,9 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
+Route::get('/dogs/{id}', function ($id) {
+  return view('dog', [
+    'id' => $id
+  ]);
+});
+
+Route::get('/dogs', function () {
+  $dogs = [
+    'Ruff',
+    'Rover',
+    'Ralph'
+  ];
+  return view('dogs', [
+    'dogs' => $dogs
+  ]);
+});
+
+Route::get('/submit', function () {
+  return view('submit');
 });
