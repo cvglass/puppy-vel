@@ -8,20 +8,39 @@
 
 <form method="POST" action="/dogs">
   {{ csrf_field() }}
-  <div>
-    Name: <input type="text" name="name">
+
+  <div class="field">
+    <label class="label" for="name">Name</label>
+    <div class="control">
+      <input type="text" class="input" name="name">
+    </div>
   </div>
-  <div>
-    Age: <input type="number" min="1" name="age">
+
+  <div class="field">
+    <label class="label" for="age">Age</label>
+    <div class="control">
+      <input type="number" min="1" class="input" name="age">
+    </div>
   </div>
-  <div>
-    Weight: <input type="number" min="1" name="weight">
+
+  <div class="field">
+    <label class="label" for="weight">Weight</label>
+    <div class="control">
+      <input type="number" min="1" class="input" name="weight">
+    </div>
   </div>
-  <div>
-    Breed: <input type="text" name="breed">
+
+  <div class="field">
+    <label class="label" for="breed">Breed</label>
+    <div class="control">
+      <input type="text" class="input" name="breed">
+    </div>
   </div>
-  <div>
-    <button type="submit">Submit</button>
+
+  <div class="field">
+    <div class="control">
+      <button type="submit" class="button is-link">Submit</button>
+    </div>
   </div>
 </form>
 

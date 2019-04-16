@@ -43,6 +43,7 @@
       <button type="submit" class="button is-link">Update</button>
     </div>
   </div>
+</form>
 
 <form method="POST" action="/dogs/{{ $dog->id }}" style="margin-bottom: 1em">
   {{ method_field('DELETE') }}
