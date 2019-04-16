@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'DogsController@home');
+Route::get('/', 'NavController@home');
 Route::get('/dogs', 'DogsController@index');
 Route::get('/dogs/create', 'DogsController@create');
 Route::get('/dogs/{dog}', 'DogsController@show');

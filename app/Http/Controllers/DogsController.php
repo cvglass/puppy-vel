@@ -9,11 +9,6 @@ use GuzzleHttp\Client;
 
 class DogsController extends Controller
 {
-    public function home()
-    {
-      return view('welcome');
-    }
-
     public function show($id)
     {
       $dog = Dog::find($id);
