@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -16,13 +17,14 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                font-weight: 700;
                 height: 100vh;
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
+            img {
+              max-height: 300px;
+              max-width: 1000px;
             }
 
             .flex-center {
@@ -50,7 +52,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #131516;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -78,8 +80,12 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Contacts
+                @yield('content')
+
+                <div class="links">
+                    <a href="/">Home</a>
+                    <a href="/dogs">Show me the puppies!</a>
+                    <a href="/dogs/create">Submit your puppy</a>
                 </div>
             </div>
         </div>
