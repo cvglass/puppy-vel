@@ -33,7 +33,13 @@
   <div class="field">
     <label class="label" for="breed">Breed</label>
     <div class="control">
-      <input type="text" class="input" name="breed">
+      <div class="select">
+        <select class="input" name="breed">
+        @foreach ($breeds as $breed)
+          <option>{{ $breed }}</option>
+        @endforeach
+        </select>
+      </div>
     </div>
   </div>
 

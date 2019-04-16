@@ -7,7 +7,7 @@ use App\Dog;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
-class PagesController extends Controller
+class DogsController extends Controller
 {
     public function home()
     {
@@ -18,7 +18,6 @@ class PagesController extends Controller
     {
       $dog = Dog::find($id);
       $client = new Client();
-      $result = null;
 
       $promise = $client->getAsync("https://dog.ceo/api/breed/".$dog->breed."/images")->then(
         function ($response) {
@@ -28,7 +27,7 @@ class PagesController extends Controller
         }
       );
       $response = $promise->wait();
-     
+
       return view('dog', [
         'dog' => $dog,
         'response' => $response
@@ -45,14 +44,31 @@ class PagesController extends Controller
 
     public function create()
     {
-      return view('create');
+      $client = new Client();
+
+      $promise = $client->getAsync("https://dog.ceo/api/breeds/list/all")->then(
+        function ($response) {
+            return $response->getBody();
+        }, function ($exception) {
+            return $exception->getMessage();
+        }
+      );
+      $response = $promise->wait();
+      $breeds = array_keys((array)json_decode($response)->message);
+
+      return view('create', [
+        'breeds' => $breeds
+      ]);
     }
 
     public function store()
     {
       $dog = new Dog();
 
-      $dog->name = request('name');
+      $unformatted_name = request('name');
+      $name = ucfirst(strtolower($unformatted_name));
+
+      $dog->name = $name;
       $dog->age = request('age');
       $dog->weight = request('weight');
       $dog->breed = request('breed');
@@ -64,8 +80,10 @@ class PagesController extends Controller
     public function update($id)
     {
       $dog = Dog::find($id);
-
-      $dog->name = request('name');
+      
+      $unformatted_name = request('name');
+      $name = ucfirst(strtolower($unformatted_name));
+      $dog->name = $name;
       $dog->age = request('age');
       $dog->weight = request('weight');
       $dog->breed = request('breed');
@@ -77,9 +95,21 @@ class PagesController extends Controller
     public function edit($id)
     {
       $dog = Dog::find($id);
+      $client = new Client();
+
+      $promise = $client->getAsync("https://dog.ceo/api/breeds/list/all")->then(
+        function ($response) {
+            return $response->getBody();
+        }, function ($exception) {
+            return $exception->getMessage();
+        }
+      );
+      $response = $promise->wait();
+      $breeds = array_keys((array)json_decode($response)->message);
 
       return view('edit',  [
-        'dog' => $dog
+        'dog' => $dog,
+        'breeds' => $breeds
       ]);
     }
 

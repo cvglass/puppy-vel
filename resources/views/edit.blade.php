@@ -34,7 +34,17 @@
   <div class="field">
     <label class="label" for="breed">Breed</label>
     <div class="control">
-      <input type="text" class="input" name="breed" value={{ $dog->breed }}>
+      <div class="select">
+        <select class="input" name="breed">
+        @foreach ($breeds as $breed)
+          @if ($breed === $dog->breed)
+            <option selected>{{ $breed }}</option>
+          @else
+            <option>{{ $breed }}</option>
+          @endif
+        @endforeach
+        </select>
+      </div>
     </div>
   </div>
 

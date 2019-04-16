@@ -9,7 +9,9 @@
 <p>Age: {{ $dog->age }} {{ $dog->age > 1 ? "years" : "year" }}</p>
 <p>Weight: {{ $dog->weight }}lbs</p>
 <p>Breed: {{ $dog->breed }}</p>
-<img src="{{json_decode($response)->message[0]}}">
+<div class="box">
+  <img src="{{json_decode($response)->message[0]}}">
+</div>
 <form method="GET" action="/dogs/{{ $dog->id }}/edit">
   {{ csrf_field() }}
 

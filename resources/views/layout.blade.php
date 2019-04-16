@@ -17,9 +17,14 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
-                font-weight: 100;
+                font-weight: 700;
                 height: 100vh;
                 margin: 0;
+            }
+
+            img {
+              max-height: 300px;
+              max-width: 1000px;
             }
 
             .flex-center {
@@ -47,7 +52,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #131516;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;

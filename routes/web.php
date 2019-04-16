@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
-Route::get('/dogs', 'PagesController@index');
-Route::get('/dogs/create', 'PagesController@create');
-Route::get('/dogs/{dog}', 'PagesController@show');
-Route::post('/dogs', 'PagesController@store');
-Route::get('/dogs/{dog}/edit', 'PagesController@edit');
-Route::patch('/dogs/{dog}', 'PagesController@update');
-Route::delete('/dogs/{dog}', 'PagesController@destroy');
+Route::get('/', 'DogsController@home');
+Route::get('/dogs', 'DogsController@index');
+Route::get('/dogs/create', 'DogsController@create');
+Route::get('/dogs/{dog}', 'DogsController@show');
+Route::post('/dogs', 'DogsController@store');
+Route::get('/dogs/{dog}/edit', 'DogsController@edit');
+Route::patch('/dogs/{dog}', 'DogsController@update');
+Route::delete('/dogs/{dog}', 'DogsController@destroy');
 
 
 
