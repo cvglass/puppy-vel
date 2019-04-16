@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -19,10 +20,6 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
             }
 
             .flex-center {
@@ -83,7 +80,7 @@
                 <div class="links">
                     <a href="/">Home</a>
                     <a href="/dogs">Show me the puppies!</a>
-                    <a href="/submit">Submit your puppy</a>
+                    <a href="/dogs/create">Submit your puppy</a>
                 </div>
             </div>
         </div>

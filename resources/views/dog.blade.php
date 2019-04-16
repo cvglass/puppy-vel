@@ -3,8 +3,20 @@
 @section('content')
 
 <div class="title m-b-md">
-    Single Dog
+  {{ $dog->name }}
 </div>
 
-<p>{{ $id }}</p>
+<p>Age: {{ $dog->age }} {{ $dog->age > 1 ? "years" : "year" }}</p>
+<p>Weight: {{ $dog->weight }}lbs</p>
+<p>Breed: {{ $dog->breed }}</p>
+<img src="{{json_decode($response)->message[0]}}">
+<form method="GET" action="/dogs/{{ $dog->id }}/edit">
+  {{ csrf_field() }}
+
+  <div class="field is-grouped is-grouped-centered">
+    <div class="control">
+      <button type="submit" class="button is-link">Edit</button>
+    </div>
+  </div>
+</form>
 @endsection

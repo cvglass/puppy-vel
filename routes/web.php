@@ -11,27 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', 'PagesController@home');
+Route::get('/dogs', 'PagesController@index');
+Route::get('/dogs/create', 'PagesController@create');
+Route::get('/dogs/{dog}', 'PagesController@show');
+Route::post('/dogs', 'PagesController@store');
+Route::get('/dogs/{dog}/edit', 'PagesController@edit');
+Route::patch('/dogs/{dog}', 'PagesController@update');
+Route::delete('/dogs/{dog}', 'PagesController@destroy');
 
-Route::get('/dogs/{id}', function ($id) {
-  return view('dog', [
-    'id' => $id
-  ]);
-});
 
-Route::get('/dogs', function () {
-  $dogs = [
-    'Ruff',
-    'Rover',
-    'Ralph'
-  ];
-  return view('dogs', [
-    'dogs' => $dogs
-  ]);
-});
 
-Route::get('/submit', function () {
-  return view('submit');
-});
